@@ -1,6 +1,5 @@
 import time
 import traceback
-
 import aiohttp
 import redis
 import uvicorn
@@ -9,7 +8,6 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.logger import logger
 from fastapi.responses import Response
 from pydantic import BaseModel
-
 from WxCrypt.WXBizMsgCrypt3 import WXBizMsgCrypt
 from tasks import process_ai_request
 
@@ -173,21 +171,6 @@ async def receive_message(request: Request):
         logger.error(traceback.format_exc())
         raise HTTPException(status_code=500, detail="服务器内部错误")
 
-
-@app.get("/callback")
-async def verify_url(msg_signature: str, timestamp: str, nonce: str, echostr: str):
-    try:
-        logger.info(f"收到验证请求: msg_signature={msg_signature}, timestamp={timestamp}, nonce={nonce}")
-        ret, DecryptEchoStr = wxcpt.VerifyURL(msg_signature, timestamp, nonce, echostr)
-        if ret == 0:
-            logger.info("URL验证成功")
-            return Response(content=DecryptEchoStr)
-        else:
-            logger.error(f"URL验证失败，错误码: {ret}")
-            raise HTTPException(status_code=400, detail="验证失败")
-    except Exception as e:
-        logger.error(f"验证过程发生错误: {str(e)}")
-        raise HTTPException(status_code=500, detail="服务器内部错误")
 
 @app.get("/callback")
 async def verify_callback_url(msg_signature: str, timestamp: str, nonce: str, echostr: str):
