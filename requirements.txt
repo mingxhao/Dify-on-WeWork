@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+redis
+aiohttp
+celery
+requests
+pydantic
+PyCryptodome
+xmltodict
