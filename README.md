@@ -12,6 +12,7 @@ Dify-On-WeWork 是一个用于对接 Dify 和企业微信应用的中间件，�
 
 ## 文件目录结构
 
+```bash
 |-- WxCrypt
 |   |-- WXBizMsgCrypt3.py
 |   `-- ierror.py
@@ -20,7 +21,7 @@ Dify-On-WeWork 是一个用于对接 Dify 和企业微信应用的中间件，�
 |-- main.py
 |-- requirements.txt
 |-- tasks.py
-
+```
 ## 快速开始
 
 ### 环境要求
