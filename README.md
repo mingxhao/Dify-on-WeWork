@@ -22,6 +22,7 @@ Dify-On-WeWork 是一个用于对接 Dify 和企业微信应用的中间件，�
 |-- requirements.txt
 |-- tasks.py
 ```
+
 ## 快速开始
 
 ### 环境要求
@@ -34,24 +35,38 @@ Dify-On-WeWork 是一个用于对接 Dify 和企业微信应用的中间件，�
 
 ### 安装步骤
 
-1. **克隆仓库**
+1. **安装 Python 3 和 python3-venv**
+
+    ```bash
+   sudo apt update
+   sudo apt install python3 python3-venv
+    ```
+
+2. **克隆仓库**
 
     ```bash
     git clone https://github.com/yourusername/dify-on-wework.git
     cd dify-on-wework
     ```
 
-2. **安装依赖**
+3. **创建虚拟环境并激活**
+
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+4. **安装依赖**
 
     ```bash
     pip install -r requirements.txt
     ```
 
-3. **配置 Redis**
+5. **配置 Redis**
 
    确保 Redis 服务已启动，并监听默认端口 `6379`。
 
-4. **下载 WxCrypt 库**
+6. **下载 WxCrypt 库**
 
    从企业微信官网下载 WxCrypt 库，并解压到 `WxCrypt` 目录：
 
@@ -60,7 +75,7 @@ Dify-On-WeWork 是一个用于对接 Dify 和企业微信应用的中间件，�
     tar -xvjf weworkapi_python.tar.bzip2 -C WxCrypt
     ```
 
-5. **修改配置文件**
+7. **修改配置文件**
 
     - **`main.py`**：修改以下配置：
 
@@ -78,7 +93,7 @@ Dify-On-WeWork 是一个用于对接 Dify 和企业微信应用的中间件，�
         DIFY_API_KEY = 'your_dify_api_key'  # Dify API Key
         ```
 
-6. **启动服务**
+8. **启动服务**
 
    运行启动脚本：
 
@@ -87,7 +102,7 @@ Dify-On-WeWork 是一个用于对接 Dify 和企业微信应用的中间件，�
     ./dify-on-wework-start.sh
     ```
 
-7. **停止服务**
+9. **停止服务**
 
    运行停止脚本：
 
